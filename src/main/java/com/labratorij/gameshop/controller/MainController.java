@@ -18,11 +18,6 @@ public class MainController {
     @Autowired
     private ClientService clientService;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public List<ClientEntity> index() {
-        return clientService.getAll();
-    }
-
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap model) {
         model.addAttribute("clients", clientService.getAll());

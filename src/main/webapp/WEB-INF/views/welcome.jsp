@@ -5,6 +5,7 @@
 <html>
 <head lang="en">
     <title>GameShop</title>
+    <link href="<c:url value="/resources/style.css" />" rel="stylesheet">
 </head>
 
 <body>
@@ -18,12 +19,16 @@
             <th>email</th>
             <th>telephone</th>
             <th>orders</th>
+            <th></th>
         </tr>
         <c:forEach items="${clients}" var="client" varStatus="status">
             <tr valign="top">
                 <td>${client.getName()}</td>
                 <td>${client.getEmail()}</td>
                 <td>${client.getTelephone()}</td>
+                <td><a class = "two" href="${pageContext.servletContext.contextPath}/get_list_orders?id=${client.clientId}">show orders</a></td>
+                <td><a class = "two" href="${pageContext.servletContext.contextPath}/delete?id=${client.clientId}">Delete</a>
+                    <a class = "two" href="${pageContext.servletContext.contextPath}/get_edit_id?id=${client.clientId}">Edit</a></td>
             </tr>
         </c:forEach>
     </table>
