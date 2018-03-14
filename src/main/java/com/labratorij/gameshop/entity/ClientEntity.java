@@ -12,15 +12,6 @@ public class ClientEntity {
     private String telephone;
     private Collection<OrderEntity> ordersByClientId;
 
-    public ClientEntity() {
-    }
-
-    public ClientEntity (String name, String email, String telephone) {
-        this.name = name;
-        this.email = email;
-        this.telephone = telephone;
-    }
-
     @Id
     @GeneratedValue
     @Column(name = "Client_ID", nullable = false)

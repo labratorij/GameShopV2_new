@@ -1,39 +1,22 @@
-<%@ page language="java" pageEncoding="UTF-8" session="true"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Андрей
+  Date: 13.03.2018
+  Time: 0:21
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head lang="en">
-    <title>GameShop</title>
-    <link href="<c:url value="/resources/style.css" />" rel="stylesheet">
+<head>
+    <title>Game Shop</title>
+    <link href="<c:url value="../resources/style_cb.css" />" rel="stylesheet">
 </head>
-
 <body>
-
-<div id="main">
-
-    <div id="dialog">
-        <br><br><table>
-        <tr>
-            <th>Name</th>
-            <th>email</th>
-            <th>telephone</th>
-            <th>orders</th>
-            <th></th>
-        </tr>
-        <c:forEach items="${clients}" var="client" varStatus="status">
-            <tr valign="top">
-                <td>${client.getName()}</td>
-                <td>${client.getEmail()}</td>
-                <td>${client.getTelephone()}</td>
-                <td><a class = "two" href="${pageContext.servletContext.contextPath}/get_list_orders?id=${client.clientId}">show orders</a></td>
-                <td><a class = "two" href="${pageContext.servletContext.contextPath}/delete?id=${client.clientId}">Delete</a>
-                    <a class = "two" href="${pageContext.servletContext.contextPath}/get_edit_id?id=${client.clientId}">Edit</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-    </div>
-</div>
-</div>
+    <label class="switch switch-flat">
+        <input class="switch-input" type="checkbox" />
+        <span class="switch-label" data-on="Изменение" data-off="Просмотр"></span>
+        <span class="switch-handle"></span>
+    </label>
 </body>
 </html>

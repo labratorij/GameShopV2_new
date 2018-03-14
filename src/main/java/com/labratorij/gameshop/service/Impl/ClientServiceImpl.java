@@ -14,12 +14,25 @@ public class ClientServiceImpl implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public void addClient(ClientEntity client) {
+    public void add(ClientEntity client) {
         clientRepository.saveAndFlush(client);
+    }
+
+    public void edit(ClientEntity client_temp, int id) {
+        ClientEntity client = clientRepository.getOne(id);
+        client.setName(client_temp.getName());
+        client.setEmail(client_temp.getEmail());
+        client.setTelephone(client_temp.getTelephone());
+        client.setOrdersByClientId(client_temp.getOrdersByClientId());
+        clientRepository.save(client);
     }
 
     public void delete(int id) {
         clientRepository.delete(id);
+    }
+
+    public ClientEntity get(int id) {
+        return clientRepository.getOne(id);
     }
 
     public List<ClientEntity> getAll() {

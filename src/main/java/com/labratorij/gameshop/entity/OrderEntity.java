@@ -1,5 +1,7 @@
 package com.labratorij.gameshop.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
@@ -24,6 +26,7 @@ public class OrderEntity {
     }
 
     @Basic
+    @DateTimeFormat
     @Column(name = "Date_order", nullable = false)
     public Date getDate() {
         return date;
